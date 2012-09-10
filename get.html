@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Get tickets</title>
+</head>
+
+<body>
+    <style>
+        body {
+            font: 12px/17px Arial;
+            padding: 30px;
+        }
+        
+        body.yellow-alert {
+            background: #fffe8d;
+        }
+        
+        body.orange-alert {
+            background: #feeaba;
+        }
+        
+        body.red-alert {
+            background: #c6f67d;
+        }
+        
+        #inputs {
+            background: #eeeeee;
+            margin-bottom: 20px;
+        }
+        
+        .inputs {
+            padding: 20px; 
+        }
+        
+        .inputs ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 0 10px 0;
+        }
+        
+        .inputs li span {
+            display: inline-block;
+            margin-left: 20px;
+            margin-right: 5px;
+        }
+        
+        .inputs .name, .inputs .url {
+            border: 1px solid #dadada;
+            width: 500px;
+        }
+
+	.inputs .name {
+		width: 200px;
+	}
+        
+        #stop_button {
+            display: none;
+            padding-bottom: 20px;
+        }
+        
+        #main {
+            padding-top: 20px;
+        }
+        
+        .button {
+            background: #ffba00;
+            color: #ffffff;
+            cursor: pointer;
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            margin-right: 20px;
+            padding: 0 10px;
+            text-decoration: none;
+        }
+        
+        .working_button {
+            display: none;
+        }
+        
+        .button_blue {
+            background: #0190fe;
+        }
+        
+        .new-window {
+            padding-top: 20px;
+        }
+        
+        #session {
+            background: #eeeeee;
+            font-size: 12px;
+            width: 100%;
+        }
+        
+        #session th {
+            background: #dadada;
+            font-weight: normal;
+        }
+        
+        #other {
+            padding-top: 20px;
+        }
+        
+        .tickets {
+            background: #eaeaea;
+            float: left;
+            height: 150px;
+            padding: 15px;
+            margin: 0 20px 20px 0;
+            width: 200px;
+        }
+        
+        .tickets.orange-alert {
+            background: #ffd200;
+        }
+        
+        .tickets.red-alert {
+            background: #73fe73;
+        }
+        
+        .tickets h2 {
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+            padding-bottom: 3px;
+        }
+        
+        .tickets h2 a {
+            color: #1d92ff;
+            text-decoration: none;
+        }
+        
+        #session a {
+            color: #1d92ff;
+            text-decoration: none;
+        }
+        
+        .tickets strong {
+            display: block;
+            font-weight: normal;
+            padding-bottom: 10px;
+        }
+        
+        .tickets ul {
+            background: rgba(255, 255, 255, 0.6);
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+        }
+        
+        .tickets li {
+            line-height: 22px;
+        }
+        
+    </style>
+    
+    <div id="inputs">
+        
+        <div class="inputs">
+            
+            <ul>
+                <li>
+                    <span>Name</span><input type="text" class="name" value="General"/> 
+                    <span>Url</span><input type="text" class="url" value="http://www.tickets.london2012.com/browse?form=search&tab=oly&sport=&venue=loc_1&fromDate=2012-08-08&toDate=2012-08-10&evening=1&show_available_events=1"/> 
+                    <span>Main?</span><input type="checkbox" class="main" checked="checked"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value="Athletics - Wednesday evening"/> 
+                    <span>Url</span><input type="text" class="url" value="http://www.tickets.london2012.com/eventdetails?id=0000455AC9A00958"/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value="Athletics - Friday evening"/> 
+                    <span>Url</span><input type="text" class="url" value="http://www.tickets.london2012.com/eventdetails?id=0000455AC9A3095E"/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value="Athletics - Saturday evening"/> 
+                    <span>Url</span><input type="text" class="url" value="http://www.tickets.london2012.com/eventdetails?id=0000455AC9A40960"/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value="Diving - Friday evening"/> 
+                    <span>Url</span><input type="text" class="url" value="http://www.tickets.london2012.com/eventdetails?id=0000455ACC000AC5"/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value=""/> 
+                    <span>Url</span><input type="text" class="url" value=""/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value=""/> 
+                    <span>Url</span><input type="text" class="url" value=""/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value=""/> 
+                    <span>Url</span><input type="text" class="url" value=""/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value=""/> 
+                    <span>Url</span><input type="text" class="url" value=""/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value=""/> 
+                    <span>Url</span><input type="text" class="url" value=""/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                <li>
+                    <span>Name</span><input type="text" class="name" value=""/> 
+                    <span>Url</span><input type="text" class="url" value=""/> 
+                    <span>Main?</span><input type="checkbox" class="main"/>
+                </li>
+                
+            </ul>
+            
+            <span class="button url_button">Use URLs</span>
+            
+        </div>
+        
+    </div>
+    
+    <div id="stop_button">
+        <span class="button stop_button button_blue">Stop searching</span>
+    </div>
+    
+    <div class="working_button">
+        <a href="https://www.tickets.london2012.com/cart" target="shopping" class="button">Shopping cart</a>
+
+        <a href="https://www.tickets.london2012.com/checkout" target="checkout" class="button button_blue">Checkout</a>
+    </div>
+    
+    <div id="main"></div>
+    
+    <div id="other"></div>
+    
+    <script src="/js/jquery/jquery-1.7.1.js"></script>
+    
+    <script>
+        var sites = [], stop = false, price = 165, alerts = [];
+        
+        // get the urls
+        $('.url_button').click(function () {
+            stop = false;
+            
+            // get the sites data from the inputs
+            var inputs, i;
+            sites = [];
+            inputs = $('.inputs input');
+            for (i = 0; i < inputs.length; i = i + 3) {
+                if (inputs[i + 1].value) {
+                    sites.push({name: inputs[i].value, url: inputs[i + 1].value, main: $(inputs[i + 2]).is(':checked')});
+                }
+            }
+            for (var i in sites) {
+                getData(i);
+            }
+            
+            $('#inputs').hide();
+            $('#stop_button, #main, #other, .working_button').show();
+            $('.stop_button').html('Change URLs');
+	    $('#other').html('');
+            $('#main').html('');
+        });
+        
+        // stop searching
+        $('.stop_button').click(function () {
+            if (!stop) {
+                stop = true;
+                setTimeout(function () {
+                    $('#inputs').show();
+                    $('#stop_button, #main, #other, .working_button').hide();
+                    $('.stop_button').html('Stopping refreshes');
+                }, 6000);
+            }
+        });
+        
+        function getData(i) {
+            var url = '/test.php?url=' + encodeURIComponent(sites[i].url) + (sites[i].main ? '&main=1' : '') + '&id=' + i;
+            $.ajax({
+                url: url,
+                cache: false,
+                dataType: 'json'
+            }).done(function(data) { 
+                // console.log(data);
+                
+                // build the main section
+                if (typeof data.sessions != 'undefined') {
+                    var code = '<table id="session"><tr><th>Session</th><th>Open?</th></tr>';
+                    var yellow_alert = false;
+                    changeAlert('yellow', data.id, false);
+                    for (var j in data.options) {
+                        code += '<tr class="' + data.options[j].open + '">';
+                        code += '<td>' + data.options[j].session + ' | ' + data.options[j].date + '</td>';
+                        code += '<td style="text-align: center">' + (data.options[j].open ? (data.options[j].path ? '<a href="http://www.tickets.london2012.com/' + data.options[j].path + '" target="_blank">Open</a>' : 'Open but broken') : 'Closed') + '</td>';
+                        code += '</tr>';
+                        
+                        if (data.options[j].open) {
+                            yellow_alert = true;
+                        }
+                    }
+                    
+                    if (yellow_alert) {
+                        changeAlert('yellow', data.id, true);
+                    }
+                    
+                    code += '</table>';
+                    code += '<div class="new-window"><a href="' + sites[data.id].url + '" target="_blank" class="button">Open in new window</a></div>';
+                    
+                    $('#main').html(code);
+                }
+                
+                // build the other section
+                else {
+                    // init vars
+                    var red_alert = false;
+                    
+                    // make sure it exists
+                    if ($('#other_' + data.id).length == 0) {
+                        $('#other').append('<div id="other_' + data.id + '" class="tickets"></div>');
+                    }
+                    
+                    // fill it
+                    var code = '<h2><a href="' + sites[data.id].url + '" target="_blank">' + sites[data.id].name + '</a></h2>';
+                    code += '<strong>' + data.count + ' Tickets available</strong>';
+                    if (data.options.length > 0) {
+                        code += '<ul>';
+                        for (var j in data.options) {
+                            code += '<li>' + data.options[j].type + ' - &#163;' + data.options[j].price + '</li>';
+                            if (parseInt(data.options[j].price) <= price) {
+                                red_alert = true;
+                            }
+                        }
+                        code += '</ul>';
+                    }
+                    $('#other_' + data.id).html(code);
+                    
+                    // get warning level
+                    $('#other_' + data.id).removeClass('red-alert');
+                    $('#other_' + data.id).removeClass('orange-alert');
+                    changeAlert('orange', data.id, false);
+                    changeAlert('red', data.id, false);
+                    if (parseInt(data.count) > 0) {
+                        $('#other_' + data.id).addClass('orange-alert');
+                        changeAlert('orange', data.id, true);
+                    }
+                    if (red_alert) {
+                        $('#other_' + data.id).addClass('red-alert');
+                        changeAlert('red', data.id, true);
+                    }
+                }
+                
+                if (!stop) {
+                    setTimeout(function () {
+                        getData(data.id);
+                    }, 5000);
+                }
+            });
+        }
+        
+        function changeAlert(color, id, is_on) {
+            alerts[id] = is_on ? color : '';
+            
+            var i, alert = '';
+            for (i in alerts) {
+                if (alert == '') {
+                    alert = alerts[i];
+                }
+                if (alert == 'yellow' && (alerts[i] == 'orange' || alerts[i] == 'red')) {
+                    alert = alerts[i];
+                }
+                if (alert == 'orange' && alerts[i] == 'red') {
+                    alert = alerts[i];
+                }
+            }
+            
+            $('body').removeClass('yellow-alert');
+            $('body').removeClass('orange-alert');
+            $('body').removeClass('red-alert');
+            
+            $('body').addClass(alert + '-alert');
+            if (alert == 'red') {
+                $('body').append('<audio src="/bells001.wav" autoplay="autoplay"></audio>');
+            }
+        }
+        
+    </script>
+</body>
+
+</html>
